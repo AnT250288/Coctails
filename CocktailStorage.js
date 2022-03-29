@@ -42,9 +42,6 @@ addButton.onclick = function () {
     const ingredients = window.prompt("Введите ингридиенты");
     const recipe = window.prompt("Опишите приготовление коктейля")
     cocktailsStorage.addValue(name, {isAlcohol, ingredients, recipe});
-
-    /*let list = JSON.stringify(cocktailsStorage.state.name)
-    document.getElementById("list").innerText = list*/
     showResult((name, {name, isAlcohol, ingredients, recipe}))
     console.log(cocktailsStorage.state)
 }
@@ -53,8 +50,7 @@ const deleteButton = document.getElementById('deleteCocktail');
 deleteButton.onclick = function () {
     const name = window.prompt('Введите название коктеля')
     const result = cocktailsStorage.deleteValue(name)
-    !result ? alert("Нет такого коктейля!") : console.log(cocktailsStorage.state) & alert("Коктейль удален!")
-
+    !result ? alert("Нет такого коктейля!") : alert("Коктейль удален!")
 }
 
 const getKeys = document.getElementById("allCocktails");
@@ -66,7 +62,6 @@ const getButton = document.getElementById('getCocktail');
 getButton.onclick = function () {
     const name = window.prompt('Введите название коктеля');
     const result = cocktailsStorage.getValue(name)
-
     !result ? alert("Нет такого коктейля!") : showResult(result)
     console.log(result)
 }
